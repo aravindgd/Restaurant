@@ -52,12 +52,14 @@ Rails.application.routes.draw do
       resources :reservations, only: [:create, :update]
     end
   end
-  
+    
   resources :hotels, only: [:create] do
     member do
       post '/create_hotel_seat' => 'hotel_seats#create_hotel_seat'
     end
   end
+
+  root 'home#home'
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
