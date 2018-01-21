@@ -1,5 +1,5 @@
 class GuestMailer <  ActionMailer::Base
- 
+  default from: 'swapnil.b009@gmail.com'
   def reservation_details(guest, reservation_details)
     @user = guest
     @reservation_details = reservation_details

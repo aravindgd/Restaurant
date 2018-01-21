@@ -1,5 +1,6 @@
 class HotelMailer <  ActionMailer::Base
- 
+   default from: 'swapnil.b009@gmail.com'
+
   def guest_details(guest)
     @user = guest
     #@password = password
