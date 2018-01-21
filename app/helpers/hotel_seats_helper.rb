@@ -1,0 +1,2 @@
+module HotelSeatsHelper
+end
