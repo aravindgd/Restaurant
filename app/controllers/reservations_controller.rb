@@ -5,7 +5,10 @@ class ReservationsController < ApplicationController
 	def index
     @hotel = Hotel.find(params[:hotel_id])
     @reservations = @hotel.reservations
+  rescue ActiveRecord::RecordNotFound
+    render json: { status: 400 , message: ' Hotel Not Found'} 
   end
+
 
   def create
 		if reservation_available?(matched_shift_time, match_guest_count)

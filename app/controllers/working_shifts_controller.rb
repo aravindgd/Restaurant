@@ -8,7 +8,8 @@ class WorkingShiftsController < ApplicationController
    error_message = error_message.present? ? error_messages : []
    render json: { success: shift_obj, errors: error_messages } 
  end
- 
+
+private
   def shift_params
   	shift_timings = params[:shift_timings]
   	shift_timings.map { |obj| {start_time: obj[:start_time], end_time: obj[:end_time] } }
@@ -16,7 +17,6 @@ class WorkingShiftsController < ApplicationController
 
  def set_hotel
   @hotel = Hotel.find(params[:id])
-  # strftime("%I:%M %p")
  rescue ActiveRecord::RecordNotFound
     render json: { status: 400, messsage: ' Hotel Not Found'} 
  end

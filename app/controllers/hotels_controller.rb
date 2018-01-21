@@ -9,6 +9,7 @@ class HotelsController < ApplicationController
 		end
 	end
 
+private
   def shift_params
   	shift_timings = params[:hotels][:shift_timings]
   	shift_timings.map { |obj| {start_time: obj[:start_time], end_time: obj[:end_time]} }

@@ -6,9 +6,10 @@ class HotelSeatsController < ApplicationController
    		render json: { status: 200, data: @table}
    else
    		render json: { created: false, errors: @table.errors.full_messages }
-   end
-		
+   end		
 	end
+
+private
 
 	def set_hotel
   	@hotel = Hotel.find(params[:id])
