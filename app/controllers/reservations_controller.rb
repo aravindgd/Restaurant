@@ -14,8 +14,8 @@ class ReservationsController < ApplicationController
 		if reservation_available?(matched_shift_time, match_guest_count)
       @reservation = Reservation.new(reservation_params)
       if @reservation.save 
-       #  GuestMailer.reservation_details(@guest, @reservation).deliver_now
-      	# HotelMailer.guest_details(@guest).deliver_now
+        GuestMailer.reservation_details(@guest, @reservation).deliver_now
+      	HotelMailer.guest_details(@guest).deliver_now
         render json: { status: 200, data: @reservation }
       else
       	render json: { created: false, errors: @reservation.errors.full_messages }
@@ -29,8 +29,8 @@ class ReservationsController < ApplicationController
     if reservation_available?(matched_shift_time, match_guest_count)
       modify_reservation_attributes(params)
         if @reservation.save!     
-          # GuestMailer.updated_reservation_details(@guest, @reservation).deliver_now
-          # HotelMailer.updated_guest_details(@guest).deliver_now
+          GuestMailer.updated_reservation_details(@guest, @reservation).deliver_now
+          HotelMailer.updated_guest_details(@guest).deliver_now
           render json: { status: 200, data: @reservation }
         else
           render json: { created: false, errors: @reservation.errors.full_messages }
