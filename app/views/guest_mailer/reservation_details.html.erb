@@ -1,5 +1,18 @@
 
     <h1>Hi <%= @user.name %></h1>
-    <p>
-      Sample mail sent using smtp.
-    </p>
+    <p>Reservation Details</p>
+    <table>
+    	<thead>
+    		<tr>
+    			<th>Hotel Name</th>
+          <th>Table Name</th>
+          <th>Booking Date</th>
+    		</tr>
+    	</thead>
+    	<tbody>
+    		<td><%= @reservation_details.hotel.name%></td>
+    		<td><%= @reservation_details.hotel_seat.name%></td>
+    		<td><%= @reservation_details.booking_day.to_date.strftime("%a-%b. %d %Y")%></td>
+    	</tbody>
+     
+    </table>

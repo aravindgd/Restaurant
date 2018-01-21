@@ -1,0 +1,24 @@
+  
+    <h1>Hi <%= @user.name %></h1>
+    <p>Updated Reservation Details</p>
+    <table>
+    	<thead>
+    	  <tr>
+    	    <th>Hotel Name</th>
+            <th>Table Name</th>
+            <th>Update Booking Date</th>
+            <th>Old Booking Date</th>
+            <th>Old Guest Count</th>
+            <th>New Guest Count</th>
+    		</tr>
+    	</thead>
+    	<tbody>
+    		<td><%= @reservation_details.hotel.name%></td>
+    		<td><%= @reservation_details.hotel_seat.name%></td>
+    		<td><%= @reservation_details.booking_day_updated.to_date.strftime("%a-%b. %d %Y")%></td>
+    		<td><%= @reservation_details.booking_day.to_date.strftime("%a-%b. %d %Y")%></td>
+    		<td><%= @reservation_details.guest_count%></td>
+    		<td><%= @reservation_details.guest_count_updated%></td>
+    	</tbody>
+     
+    </table>
